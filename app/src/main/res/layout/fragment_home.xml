@@ -1,15 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.home.HomeFragment">
 
-    </FrameLayout>
+        <ImageView
+            android:id="@+id/homaBannerImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/home_banner_image"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/banner_head"
+            android:layout_width="251dp"
+            android:layout_height="76dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="top"
+            android:lineSpacingExtra="-12sp"
+            android:text="@string/banner_head"
+            android:textAppearance="@style/banner_head"
+            app:layout_constraintBottom_toTopOf="@+id/flightButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/flightButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_18sdp"
+            android:background="@drawable/flights"
+            app:layout_constraintBottom_toBottomOf="@+id/homaBannerImage"
+            app:layout_constraintEnd_toStartOf="@+id/hotelButton"
+
+            app:layout_constraintStart_toEndOf="@+id/homaBannerImage"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/hotelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="@dimen/_18sdp"
+            android:layout_toEndOf="@id/flightButton"
+            android:background="@drawable/hotels"
+            app:layout_constraintBottom_toBottomOf="@+id/homaBannerImage"
+            app:layout_constraintEnd_toStartOf="@+id/carButton"
+            app:layout_constraintStart_toEndOf="@+id/flightButton" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/carButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="@dimen/_18sdp"
+            android:layout_toEndOf="@id/hotelButton"
+            android:background="@drawable/cars"
+            app:layout_constraintBottom_toBottomOf="@+id/homaBannerImage"
+            app:layout_constraintEnd_toStartOf="@+id/taxiButton"
+            app:layout_constraintStart_toEndOf="@+id/hotelButton" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/taxiButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="@dimen/_18sdp"
+            android:background="@drawable/taxi"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/homaBannerImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/carButton" />
+
+
+        <TextView
+            android:id="@+id/dealsTextView"
+            style="@style/dealsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/deals"
+            app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+            app:layout_constraintStart_toStartOf="@+id/tabLayout"
+            app:layout_constraintTop_toBottomOf="@+id/homaBannerImage">
+
+        </TextView>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dealsTextView"
+            app:tabContentStart="0dp"
+            app:tabIndicatorColor="#FF4760"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#FF4760"
+            app:tabTextAppearance="@style/home_tab_style"
+            app:tabTextColor="#C2C5D6">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+
+
+                >
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/filgts">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hotels">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transportations">
+
+            </com.google.android.material.tabs.TabItem>
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
+            android:layout_width="@dimen/_530sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:maxWidth="@dimen/_530sdp"
+            android:maxHeight="@dimen/_140sdp"
+            app:layout_constraintStart_toStartOf="@+id/tabLayout"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+            >
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
