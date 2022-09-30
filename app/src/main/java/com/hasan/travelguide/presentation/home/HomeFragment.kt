@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
 import com.hasan.travelguide.R
 import com.hasan.travelguide.databinding.FragmentHomeBinding
+import com.hasan.travelguide.presentation.home.deals.TabAdapter
 
 /**
  * A simple [Fragment] subclass.
@@ -16,6 +18,8 @@ import com.hasan.travelguide.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var tabAdapter: TabAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,5 +27,33 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        tabAdapterconnection()
+    }
+
+    private fun tabAdapterconnection() {
+        tabAdapter = TabAdapter(this@HomeFragment)
+        binding.viewPager2.adapter = tabAdapter
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
+            binding.viewPager2.isUserInputEnabled = false
+            when (position) {
+                0 -> {
+                    tab.setText(R.string.all)
+                }
+                1 -> {
+                    tab.setText(R.string.filgts)
+                }
+                2 -> {
+                    tab.setText(R.string.hotels)
+                }
+                3 -> {
+                    tab.setText(R.string.transportations)
+                }
+            }
+        }.attach()
     }
 }

@@ -115,6 +115,7 @@
             app:tabContentStart="0dp"
             app:tabIndicatorColor="#FF4760"
             app:tabMode="scrollable"
+
             app:tabSelectedTextColor="#FF4760"
             app:tabTextAppearance="@style/home_tab_style"
             app:tabTextColor="#C2C5D6">
@@ -122,10 +123,7 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/all"
-
-
-                >
+                android:text="@string/all">
 
             </com.google.android.material.tabs.TabItem>
 
@@ -155,16 +153,9 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2"
-            android:layout_width="@dimen/_530sdp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_140sdp"
-            android:maxWidth="@dimen/_530sdp"
-            android:maxHeight="@dimen/_140sdp"
             app:layout_constraintStart_toStartOf="@+id/tabLayout"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
-            >
-
-        </androidx.viewpager2.widget.ViewPager2>
-
-
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
