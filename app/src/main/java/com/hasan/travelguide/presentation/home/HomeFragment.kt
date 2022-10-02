@@ -35,6 +35,10 @@ class HomeFragment : Fragment() {
         tabAdapterconnection()
     }
 
+    /**
+     *This method connects viewpager2 with tab adapter and assigns text for selected tab items
+     *
+     */
     private fun tabAdapterconnection() {
         tabAdapter = TabAdapter(this@HomeFragment)
         binding.viewPager2.adapter = tabAdapter

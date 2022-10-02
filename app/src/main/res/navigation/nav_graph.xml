@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.hasan.travelguide.presentation.home.HomeFragment"
-        android:label="HomeFragment" >
-        <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-    </fragment>
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"
+        />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.hasan.travelguide.presentation.search.SearchFragment"
-        android:label="SearchFragment" >
-        <action
-            android:id="@+id/action_searchFragment_to_tripFragment"
-            app:destination="@id/tripFragment" />
-    </fragment>
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search"
+        />
     <fragment
         android:id="@+id/tripFragment"
         android:name="com.hasan.travelguide.presentation.trip.TripFragment"
-        android:label="TripFragment" >
-        <action
-            android:id="@+id/action_tripFragment_to_guideFragment"
-            app:destination="@id/guideFragment" />
-    </fragment>
+        android:label="TripFragment"
+        tools:layout="@layout/fragment_trip"
+        />
     <fragment
         android:id="@+id/guideFragment"
         android:name="com.hasan.travelguide.presentation.guide.GuideFragment"
-        android:label="GuideFragment" />
+        android:label="GuideFragment"
+        tools:layout="@layout/fragment_guide"
+        />
+
 </navigation>

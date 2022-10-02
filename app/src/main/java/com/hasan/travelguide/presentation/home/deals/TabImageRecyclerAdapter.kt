@@ -1,11 +1,8 @@
 package com.hasan.travelguide.presentation.home.deals
 
-import android.graphics.drawable.Drawable
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.hasan.travelguide.R
 import com.hasan.travelguide.databinding.HomeDealsAllItemBinding
 
 class TabImageRecyclerAdapter(val imageList:ArrayList<Int>):RecyclerView.Adapter<TabImageRecyclerAdapter.TabImageRecyclerViewHolder>() {

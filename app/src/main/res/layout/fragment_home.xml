@@ -114,8 +114,8 @@
             app:layout_constraintTop_toBottomOf="@id/dealsTextView"
             app:tabContentStart="0dp"
             app:tabIndicatorColor="#FF4760"
-            app:tabMode="scrollable"
 
+            app:tabMode="scrollable"
             app:tabSelectedTextColor="#FF4760"
             app:tabTextAppearance="@style/home_tab_style"
             app:tabTextColor="#C2C5D6">
@@ -155,7 +155,8 @@
             android:id="@+id/viewPager2"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_140sdp"
+            android:layout_marginTop="@dimen/_20ssp"
             app:layout_constraintStart_toStartOf="@+id/tabLayout"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout"/>
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

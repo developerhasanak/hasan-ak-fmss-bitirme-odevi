@@ -8,4 +8,8 @@
     <string name="filgts">Filgts</string>
     <string name="all">All</string>
     <string name="transportations">Transportations</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="trip">Trip</string>
+    <string name="guide">Guide</string>
 </resources>

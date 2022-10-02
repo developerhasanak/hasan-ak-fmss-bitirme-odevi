@@ -3,6 +3,16 @@ package com.hasan.travelguide.presentation.home.deals
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
+
+/**
+ *
+ * This class takes axiom between fragments when tab items are clicked.
+ *
+ * @constructor
+ *
+ *
+ * @param fragment ,a property of the class
+ */
 class TabAdapter(fragment: Fragment):FragmentStateAdapter(fragment) {
 
     private lateinit var fragment: Fragment
