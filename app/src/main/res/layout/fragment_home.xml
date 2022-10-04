@@ -19,7 +19,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_minus24sdp"
             android:background="@drawable/home_banner_image"
             android:scaleType="fitXY"
             app:layout_constraintDimensionRatio="1:1"
@@ -95,11 +95,12 @@
             android:id="@+id/dealsTextView"
             style="@style/dealsTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_height="26dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_24sdp"
             android:text="@string/deals"
             app:layout_constraintBottom_toTopOf="@+id/tabLayout"
-            app:layout_constraintStart_toStartOf="@+id/tabLayout"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homaBannerImage">
 
         </TextView>
@@ -107,15 +108,17 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:layout_marginStart="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_6sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dealsTextView"
             app:tabContentStart="0dp"
+            app:tabGravity="start"
             app:tabIndicatorColor="#FF4760"
-
-            app:tabMode="scrollable"
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorAnimationMode="linear"
+            app:tabMode="fixed"
             app:tabSelectedTextColor="#FF4760"
             app:tabTextAppearance="@style/home_tab_style"
             app:tabTextColor="#C2C5D6">
@@ -123,6 +126,7 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="@string/all">
 
             </com.google.android.material.tabs.TabItem>
@@ -155,8 +159,9 @@
             android:id="@+id/viewPager2"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_140sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20ssp"
-            app:layout_constraintStart_toStartOf="@+id/tabLayout"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
