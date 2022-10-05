@@ -13,7 +13,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
  *
  * @param fragment ,a property of the class
  */
-class TabAdapter(fragment: Fragment):FragmentStateAdapter(fragment) {
+class HomeTabAdapter(fragment: Fragment):FragmentStateAdapter(fragment) {
 
     private lateinit var fragment: Fragment
 

@@ -48,9 +48,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_18sdp"
             android:background="@drawable/flights"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             app:layout_constraintBottom_toBottomOf="@+id/homaBannerImage"
             app:layout_constraintEnd_toStartOf="@+id/hotelButton"
-
             app:layout_constraintStart_toEndOf="@+id/homaBannerImage"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -62,6 +62,7 @@
             android:layout_marginBottom="@dimen/_18sdp"
             android:layout_toEndOf="@id/flightButton"
             android:background="@drawable/hotels"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             app:layout_constraintBottom_toBottomOf="@+id/homaBannerImage"
             app:layout_constraintEnd_toStartOf="@+id/carButton"
             app:layout_constraintStart_toEndOf="@+id/flightButton" />
@@ -74,6 +75,7 @@
             android:layout_marginBottom="@dimen/_18sdp"
             android:layout_toEndOf="@id/hotelButton"
             android:background="@drawable/cars"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             app:layout_constraintBottom_toBottomOf="@+id/homaBannerImage"
             app:layout_constraintEnd_toStartOf="@+id/taxiButton"
             app:layout_constraintStart_toEndOf="@+id/hotelButton" />
@@ -86,6 +88,7 @@
             android:layout_marginBottom="@dimen/_18sdp"
             android:background="@drawable/taxi"
             android:scaleType="centerCrop"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             app:layout_constraintBottom_toBottomOf="@+id/homaBannerImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/carButton" />
@@ -99,14 +102,14 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_24sdp"
             android:text="@string/deals"
-            app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+            app:layout_constraintBottom_toTopOf="@+id/homeTabLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homaBannerImage">
 
         </TextView>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
+            android:id="@+id/homeTabLayout"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_26sdp"
             android:layout_marginStart="@dimen/_20sdp"
@@ -126,7 +129,6 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="@string/all">
 
             </com.google.android.material.tabs.TabItem>
@@ -134,7 +136,6 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="@string/filgts">
 
             </com.google.android.material.tabs.TabItem>
@@ -156,12 +157,12 @@
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager2"
+            android:id="@+id/homeViewPager2"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_140sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/homeTabLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -19,9 +19,9 @@
         />
     <fragment
         android:id="@+id/tripFragment"
-        android:name="com.hasan.travelguide.presentation.trip.TripFragment"
+        android:name="com.hasan.travelguide.presentation.tripplan.TripPlanFragment"
         android:label="TripFragment"
-        tools:layout="@layout/fragment_trip"
+        tools:layout="@layout/fragment_tripplan"
         />
     <fragment
         android:id="@+id/guideFragment"

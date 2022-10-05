@@ -14,4 +14,14 @@
     <string name="guide">Guide</string>
     <string name="top_destinations">TOP DESTINATIONS</string>
     <string name="nearby_attractions">Nearby Attractions</string>
+    <string name="trip_plan">Trip Plan</string>
+    <string name="trips">Trips</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="see_all">See All</string>
+    <string name="a_country_a_city_a_place_or_anything">A country,a city,a place...or anything</string>
+    <string name="m_ght_need_these">Mıght Need These</string>
+    <string name="sightseeing">Sightseeing</string>
+    <string name="resot">Resot</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="top_pick_articles">TOP-PICK ARTICLES</string>
 </resources>

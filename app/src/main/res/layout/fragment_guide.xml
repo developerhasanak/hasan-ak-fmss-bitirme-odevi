@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -10,6 +11,156 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.guide.GuideFragment">
+
+        <TextView
+            android:id="@+id/guideText"
+            style="@style/page_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_58sdp"
+            android:text="@string/guide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/mightNeedTheseText"
+            style="@style/search_screen_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:text="@string/m_ght_need_these"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideText">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/seeAllText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:text="@string/see_all"
+            android:textColor="#FF4760"
+            android:layout_marginTop="@dimen/_28sdp"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideText"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:gravity="end|top"
+            >
+
+        </TextView>
+        <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#FF4760"
+        app:layout_constraintTop_toBottomOf="@id/seeAllText"
+        app:layout_constraintStart_toStartOf="@id/seeAllText"
+        app:layout_constraintEnd_toEndOf="@id/seeAllText"
+         android:layout_marginTop="-5dp"
+
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mightNeedTheseRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_14sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mightNeedTheseText"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchEdittext"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/search_radius"
+            android:hint="@string/a_country_a_city_a_place_or_anything"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mightNeedTheseRecyclerView">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+        <com.google.android.material.chip.ChipGroup
+
+            android:id="@+id/chipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="-11dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchEdittext">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sightseeing"
+                style="@style/chip_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sightseeing"
+                app:chipIcon="@drawable/chip_icon1"
+                app:chipIconSize="25dp"
+
+                />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/resort"
+                style="@style/chip_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/resot"
+                app:chipIcon="@drawable/chip_icon2"
+
+
+                />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/restaurant"
+                style="@style/chip_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/restaurant"
+                app:chipIcon="@drawable/chip_icon3"
+
+                />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/topPickArticles"
+            style="@style/search_screen_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/top_pick_articles"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topPickArticlesRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/topPickArticles"
+            tools:listitem="@layout/guide_screen_cards_item"
+
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

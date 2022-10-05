@@ -49,9 +49,10 @@ class SearchFragment : Fragment() {
         binding.nearybyAttractionsRecyclerView.layoutManager = LinearLayoutManager(context)
         val image2 = arrayListOf(
             R.drawable.example8,
-            R.drawable.example,   //bu kısım test için kaldırılacak
+            R.drawable.trips_item_example,   //bu kısım test için kaldırılacak
             R.drawable.example2
         )
+        //connects with recyclerview adapter
         nearbyItemAdapter = NearbyAttractionsRecyclerAdapter(image2)
         binding.nearybyAttractionsRecyclerView.adapter = nearbyItemAdapter
 

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hasan.travelguide.databinding.HomeDealsAllItemBinding
 
-class TabImageRecyclerAdapter(val imageList:ArrayList<Int>):RecyclerView.Adapter<TabImageRecyclerAdapter.TabImageRecyclerViewHolder>() {
+class HomeTabImageRecyclerAdapter(val imageList:ArrayList<Int>):RecyclerView.Adapter<HomeTabImageRecyclerAdapter.TabImageRecyclerViewHolder>() {
     class TabImageRecyclerViewHolder(val binding: HomeDealsAllItemBinding):RecyclerView.ViewHolder(binding.root) {
 
     }

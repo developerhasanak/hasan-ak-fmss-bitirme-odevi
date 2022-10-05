@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.tripplan.TripPlanFragment">
+
+        <TextView
+            android:id="@+id/tripTitleText"
+            android:layout_width="@dimen/_119sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_58sdp"
+            android:text="@string/trip_plan"
+            style="@style/page_title_style"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tripTabLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tripTitleText"
+            app:tabContentStart="0dp"
+            app:tabGravity="start"
+            app:tabInlineLabel="true"
+            app:tabIndicatorColor="#FF4760"
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorAnimationMode="linear"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#FF4760"
+            app:tabIconTint="@color/trip_tabicon_selected_color"
+            app:tabTextAppearance="@style/home_tab_style"
+            app:tabTextColor="#C2C5D6"
+
+            >
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/trips"
+                android:icon="@drawable/brief_selector"
+                />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bookmark"
+                android:icon="@drawable/bookmark_selector"
+                />
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <ImageButton
+            android:id="@+id/fabButton"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginBottom="@dimen/_106sdp"
+            android:background="@drawable/fab_shape"
+            android:scaleType="center"
+            android:src="@drawable/add_fab"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </ImageButton>
+        
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/tripsViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tripTabLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+        </androidx.viewpager2.widget.ViewPager2>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

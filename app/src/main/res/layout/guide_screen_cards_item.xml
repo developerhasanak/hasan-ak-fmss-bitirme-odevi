@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:layout_marginEnd="16dp"
+       >
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:id="@+id/cardImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cardviewexample"
+                />
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:padding="8dp"
+             > 
+             <TextView
+                 android:id="@+id/category"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="adefrg"
+                 android:layout_marginTop="@dimen/_8sdp"
+                 android:layout_marginStart="@dimen/_12sdp"
+                 style="@style/category_style"
+                 >
+
+             </TextView>
+
+             <TextView
+                 android:id="@+id/article"
+                 android:layout_width="@dimen/_229sdp"
+                 android:layout_height="wrap_content"
+                 android:text="Beautiful Alley Scene in Old Town in Europe at Sunset"
+                 android:layout_marginTop="@dimen/_4sdp"
+                 android:layout_marginStart="@dimen/_12sdp"
+                 style="@style/article_style"
+                 >
+
+             </TextView>
+         
+         </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+   </LinearLayout>
+</layout>

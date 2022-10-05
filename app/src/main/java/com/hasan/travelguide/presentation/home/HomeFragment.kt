@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hasan.travelguide.R
 import com.hasan.travelguide.databinding.FragmentHomeBinding
-import com.hasan.travelguide.presentation.home.deals.TabAdapter
+import com.hasan.travelguide.presentation.home.deals.HomeTabAdapter
 
 /**
  * A simple [Fragment] subclass.
@@ -18,7 +18,7 @@ import com.hasan.travelguide.presentation.home.deals.TabAdapter
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var tabAdapter: TabAdapter
+    private lateinit var tabAdapter: HomeTabAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,14 +36,14 @@ class HomeFragment : Fragment() {
     }
 
     /**
-     *This method connects viewpager2 with tab adapter and assigns text for selected tab items
+     *This method connects homeViewpager2 with tab adapter and assigns text for selected tab items
      *
      */
     private fun tabAdapterconnection() {
-        tabAdapter = TabAdapter(this@HomeFragment)
-        binding.viewPager2.adapter = tabAdapter
-        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
-            binding.viewPager2.isUserInputEnabled = false
+        tabAdapter = HomeTabAdapter(this@HomeFragment)
+        binding.homeViewPager2.adapter = tabAdapter
+        TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager2) { tab, position ->
+            binding.homeViewPager2.isUserInputEnabled = false
             when (position) {
                 0 -> {
                     tab.setText(R.string.all)
