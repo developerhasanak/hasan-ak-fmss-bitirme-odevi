@@ -5,18 +5,35 @@
 
     </data>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:layout_width="@dimen/_108sdp"
+        android:layout_height="@dimen/_125sdp"
         android:orientation="horizontal">
         
         <ImageView
             android:id="@+id/mightNeedTheseItemView"
             android:layout_width="@dimen/_108sdp"
             android:layout_height="@dimen/_125sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
+            android:foreground="@drawable/image_alpha"
+            style="@style/image_radio"
             >
         </ImageView>
+        <TextView
+            android:id="@+id/mightNeedTheseAlphaHideTitle"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="70dp"
+            android:layout_centerHorizontal="true"
+            style="@style/alpha_hide_style"
+            android:textSize="18sp"
+            android:text="Budget Travel"
+            >
 
-    </LinearLayout>
+        </TextView>
+
+    </RelativeLayout>
 </layout>

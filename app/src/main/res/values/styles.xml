@@ -44,7 +44,7 @@
 
     </style>
 
-    <style name="top_destinations_image_radio">
+    <style name="image_radio">
         <item name="cornerRadius">6dp</item>
     </style>
 
@@ -65,7 +65,9 @@
         <item name="backgroundTint">#FF4760</item>
         <item name="srcCompat">@drawable/add_fab</item>
         <item name="fabSize">normal</item>
-        <item name="android:scaleType">center</item>
+
+        <item name="tint">@color/white</item>
+
     </style>
 
     <style name="chip_style" parent="Widget.MaterialComponents.Chip.Entry">
@@ -93,5 +95,14 @@
         <item name="android:textSize">@dimen/_18ssp</item>
         <item name="fontFamily">@font/source_sans_pro_bold</item>
         <item name="android:gravity">top|left</item>
+    </style>
+    
+    <style name="alpha_hide_style">
+        <item name="android:textColor">#FCFCFD</item>
+        <item name="fontFamily">@font/source_sans_pro_bold</item>
+    </style>
+    <style name="alpha_body_style">
+        <item name="android:textColor">#FCFCFD</item>
+        <item name="fontFamily">@font/source_sans_pro</item>
     </style>
 </resources>

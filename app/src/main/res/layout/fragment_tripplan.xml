@@ -7,11 +7,14 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.tripplan.TripPlanFragment">
-
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/constraintLayout"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
         <TextView
             android:id="@+id/tripTitleText"
             android:layout_width="@dimen/_119sdp"
@@ -62,20 +65,6 @@
         </com.google.android.material.tabs.TabLayout>
 
 
-        <ImageButton
-            android:id="@+id/fabButton"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
-            android:layout_marginBottom="@dimen/_106sdp"
-            android:background="@drawable/fab_shape"
-            android:scaleType="center"
-            android:src="@drawable/add_fab"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-        </ImageButton>
-        
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/tripsViewPager"
             android:layout_width="match_parent"
@@ -88,7 +77,23 @@
             >
 
         </androidx.viewpager2.widget.ViewPager2>
-        
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_anchorGravity="bottom|center"
+            android:layout_margin="@dimen/_106sdp"
+            app:layout_anchor="@id/constraintLayout"
+            android:layout_marginBottom="@dimen/_133sdp"
+            style="@style/fab_style"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

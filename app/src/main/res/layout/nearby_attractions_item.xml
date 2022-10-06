@@ -15,19 +15,21 @@
 
         <ImageView
             android:id="@+id/nearybyAttractionsItemImage"
-            style="@style/top_destinations_image_radio"
+            style="@style/image_radio"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_153sdp"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="centerCrop"
+            android:foreground="@drawable/image_alpha"
             >
 
         </ImageView>
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="@dimen/_49sdp"
@@ -35,30 +37,60 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="18dp"
             android:background="#FF4760"
-            android:textColor="#FCFCFD"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:gravity="center"
             android:text="Hotel"
             android:textAllCaps="true"
-            android:fontFamily="@font/source_sans_pro_semibold"
+            android:textColor="#FCFCFD"
             android:textSize="14sp"
-            android:gravity="center"
             app:layout_constraintStart_toStartOf="@+id/nearybyAttractionsItemImage"
             app:layout_constraintTop_toTopOf="@+id/nearybyAttractionsItemImage">
+
         </TextView>
 
         <ImageButton
+            style="@style/bookmark_radio"
             android:layout_width="@dimen/_32sdp"
             android:layout_height="@dimen/_32sdp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/bookmark_background"
+            android:src="@drawable/book_mark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/bookmark_background"
-            style="@style/bookmark_radio"
-            android:src="@drawable/book_mark"
 
             >
 
         </ImageButton>
+
+        <TextView
+            android:id="@+id/nearbyAttractionsAlphaHeadTitle"
+            style="@style/alpha_hide_style"
+            android:layout_width="123dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
+            android:text="Marina Bay"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/nebarbyAttractionsAlphaBodyTitle"
+            style="@style/alpha_hide_style"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Singapore"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nearbyAttractionsAlphaHeadTitle">
+
+        </TextView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
