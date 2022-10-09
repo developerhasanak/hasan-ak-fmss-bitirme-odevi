@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".presentation.home.deals.AllFragment">
+        tools:context=".presentation.home.deals.all.AllFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/imageRecyclerVieew"

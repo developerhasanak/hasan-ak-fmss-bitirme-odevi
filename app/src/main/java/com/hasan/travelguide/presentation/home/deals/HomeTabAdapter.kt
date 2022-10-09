@@ -2,6 +2,8 @@ package com.hasan.travelguide.presentation.home.deals
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.hasan.travelguide.presentation.home.deals.all.AllFragment
+import javax.inject.Inject
 
 
 /**
@@ -13,7 +15,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
  *
  * @param fragment ,a property of the class
  */
-class HomeTabAdapter(fragment: Fragment):FragmentStateAdapter(fragment) {
+
+class HomeTabAdapter @Inject constructor (
+    fragment: Fragment):FragmentStateAdapter(fragment) {
 
     private lateinit var fragment: Fragment
 
@@ -21,7 +25,7 @@ class HomeTabAdapter(fragment: Fragment):FragmentStateAdapter(fragment) {
 
     override fun createFragment(position: Int): Fragment {
         when(position){
-            0->{fragment = AllFragment()}
+            0->{fragment = AllFragment() }
             1->{fragment = FilgtsFragment()}
             2->{fragment = HotelsFragment()}
             3->{fragment = TransportationsFragment()}

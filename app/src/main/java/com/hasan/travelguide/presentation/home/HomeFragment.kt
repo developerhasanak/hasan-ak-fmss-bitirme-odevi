@@ -15,7 +15,8 @@ import com.hasan.travelguide.presentation.home.deals.HomeTabAdapter
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
+
+class HomeFragment: Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var tabAdapter: HomeTabAdapter
