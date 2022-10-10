@@ -1,49 +1,41 @@
 package com.hasan.travelguide.presentation.home.deals.all
 
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.hasan.travelguide.R
 import com.hasan.travelguide.databinding.HomeDealsAllItemBinding
 import com.hasan.travelguide.domain.model.remotemodel.AllTravelListItem
-import javax.inject.Inject
+import com.hasan.travelguide.domain.model.remotemodel.Image
+import com.hasan.travelguide.utils.GlideApp
+import com.hasan.travelguide.utils.downloadFromUrl
 
-class AllFragmentRecyclerAdapter @Inject constructor(
-    var imageList: List<AllTravelListItem>
-) : RecyclerView.Adapter<AllFragmentRecyclerAdapter.TabImageRecyclerViewHolder>() {
 
-    var imgList = arrayListOf<String>()
+class AllFragmentRecyclerAdapter (
+    var imageList: List<Image>
+) : RecyclerView.Adapter<AllFragmentRecyclerAdapter.AllFragmentViewHolder>() {
 
-    class TabImageRecyclerViewHolder(val binding: HomeDealsAllItemBinding) :
+    class AllFragmentViewHolder(val binding: HomeDealsAllItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TabImageRecyclerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllFragmentViewHolder {
         val binding =
             HomeDealsAllItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return TabImageRecyclerViewHolder(binding)
+        return AllFragmentViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: TabImageRecyclerViewHolder, position: Int) {
-        holder.binding.homeDealsItemView.apply {
 
-            try {
-                imageList[position].images.forEach {
-                    imgList.add(it.url)
-                }
+    override fun onBindViewHolder(holder: AllFragmentViewHolder, position: Int) {
 
-                val img = imgList[position]
-                Glide.with(holder.itemView.context).load(img).into(holder.binding.homeDealsItemView)
-
-            } catch (e: Exception) {
-                Log.v("Glide Error", e.toString())
-            }
-        }
-
+        try {
+            GlideApp.with(holder.itemView.context).load(imageList[position].url).into(holder.binding.homeDealsItemView)
+        } catch (e:Exception){
+             e.message
+         }
     }
-
     override fun getItemCount(): Int {
         return imageList.size
     }

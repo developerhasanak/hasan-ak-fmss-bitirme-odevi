@@ -1,4 +1,4 @@
-package com.hasan.travelguide.presentation.home.deals
+package com.hasan.travelguide.presentation.home.deals.transportations
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

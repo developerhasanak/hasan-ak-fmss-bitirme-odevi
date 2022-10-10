@@ -3,6 +3,9 @@ package com.hasan.travelguide.presentation.home.deals
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.hasan.travelguide.presentation.home.deals.all.AllFragment
+import com.hasan.travelguide.presentation.home.deals.flights.FlightsFragment
+import com.hasan.travelguide.presentation.home.deals.hotels.HotelsFragment
+import com.hasan.travelguide.presentation.home.deals.transportations.TransportationsFragment
 import javax.inject.Inject
 
 
@@ -26,9 +29,12 @@ class HomeTabAdapter @Inject constructor (
     override fun createFragment(position: Int): Fragment {
         when(position){
             0->{fragment = AllFragment() }
-            1->{fragment = FilgtsFragment()}
-            2->{fragment = HotelsFragment()}
-            3->{fragment = TransportationsFragment()}
+            1->{fragment = FlightsFragment()
+            }
+            2->{fragment = HotelsFragment()
+            }
+            3->{fragment = TransportationsFragment()
+            }
         }
         return fragment
     }

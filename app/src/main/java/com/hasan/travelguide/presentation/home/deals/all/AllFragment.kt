@@ -9,24 +9,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hasan.travelguide.databinding.FragmentAllBinding
-import com.hasan.travelguide.utils.Status
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
-import javax.inject.Inject
+import java.text.FieldPosition
 
 /**
  * A simple [Fragment] subclass.
  * Use the [AllFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-@AndroidEntryPoint
-class AllFragment @Inject constructor(
 
-) : Fragment() {
+class AllFragment:Fragment() {
 
     private lateinit var binding: FragmentAllBinding
     private lateinit var viewModel: AllfragmentViewModel
-    private lateinit var allFragmentAdapter: AllFragmentRecyclerAdapter
+    private lateinit var allFragmentAdapter:AllFragmentRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,34 +36,28 @@ class AllFragment @Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(AllfragmentViewModel::class.java)
-        binding.imageRecyclerVieew.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        viewModel = ViewModelProvider(requireActivity())[AllfragmentViewModel::class.java]
+        viewModel.getDataFromApi()
+
+        binding.imageRecyclerVieew.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+
+         observerLiveData()
+
+    }
+    private fun observerLiveData() {
+    viewModel.allList.observe(viewLifecycleOwner, Observer { allTravel->
+        allTravel?.let {
+                val url = it.flatMap {x-> x.images!! }
+            allFragmentAdapter = AllFragmentRecyclerAdapter(url)
+                binding.imageRecyclerVieew.adapter = allFragmentAdapter
+
+        }
+
+    })
 
 
-        subscribeToObservers()
+
     }
 
-    private fun subscribeToObservers() {
-        viewModel.getAllItem()
-        viewModel.allList.observe(viewLifecycleOwner, Observer {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    val list = it.data
-                    list?.let {
-                        allFragmentAdapter = AllFragmentRecyclerAdapter(list)
-                        binding.imageRecyclerVieew.adapter = allFragmentAdapter
-                    }
-                }
 
-                Status.ERROR -> {
-
-                }
-
-                Status.LOADING -> {
-
-                }
-            }
-        })
-    }
 }

@@ -2,6 +2,7 @@ package com.hasan.travelguide.utils
 
 
 import android.graphics.drawable.Drawable
+
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Priority

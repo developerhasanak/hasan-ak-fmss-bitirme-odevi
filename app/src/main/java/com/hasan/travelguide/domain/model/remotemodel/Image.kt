@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class Image(
     @SerializedName("altText")
-    val altText: Any,
+    var altText: Any?,
     @SerializedName("height")
-    val height: Int,
+    var height: Int?,
     @SerializedName("width")
-    val width: Int,
+    var width: Int?,
     @SerializedName("url")
-    val url: String,
+    var url: String,
     @SerializedName("isHeroImage")
-    val isHeroImage: Boolean
+    var isHeroImage: Boolean?
 )

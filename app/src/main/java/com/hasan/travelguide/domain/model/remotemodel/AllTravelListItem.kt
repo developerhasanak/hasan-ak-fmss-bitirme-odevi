@@ -5,19 +5,19 @@ import com.google.gson.annotations.SerializedName
 
 data class AllTravelListItem(
     @SerializedName("title")
-    val title: String,
+    var title: String?,
     @SerializedName("description")
-    val description: String,
+    var description: String?,
     @SerializedName("category")
-    val category: String,
+    var category: String?,
     @SerializedName("country")
-    val country: String,
+    var country: String?,
     @SerializedName("city")
-    val city: String,
+    var city: String?,
     @SerializedName("images")
-    val images: List<Image>,
+    var images: List<Image>?,
     @SerializedName("isBookmark")
-    val isBookmark: Boolean,
+    var isBookmark: Boolean?,
     @SerializedName("id")
-    val id: String
+    var id: String
 )
