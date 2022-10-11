@@ -10,10 +10,12 @@ import com.hasan.travelguide.domain.model.remotemodel.AllTravelListItem
 import com.hasan.travelguide.domain.model.remotemodel.Image
 import com.hasan.travelguide.utils.GlideApp
 import com.hasan.travelguide.utils.downloadFromUrl
+import javax.inject.Inject
 
 
-class AllFragmentRecyclerAdapter (
+class AllFragmentRecyclerAdapter @Inject constructor(
     var imageList: List<Image>
+
 ) : RecyclerView.Adapter<AllFragmentRecyclerAdapter.AllFragmentViewHolder>() {
 
     class AllFragmentViewHolder(val binding: HomeDealsAllItemBinding) :

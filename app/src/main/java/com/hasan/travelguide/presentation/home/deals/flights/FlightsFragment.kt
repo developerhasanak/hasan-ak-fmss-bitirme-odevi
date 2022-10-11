@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hasan.travelguide.databinding.FragmentFlightsBinding
+import com.hasan.travelguide.presentation.home.deals.all.AllFragmentRecyclerAdapter
+import com.hasan.travelguide.utils.Status
 
 /**
  * A simple [Fragment] subclass.
@@ -44,11 +47,28 @@ class FlightsFragment : Fragment() {
     }
 
     private fun observerLiveData() {
-        viewModel.allList.observe(viewLifecycleOwner, Observer { flight ->
+        viewModel.flightsList.observe(viewLifecycleOwner, Observer { flight ->
             flight?.let {
-                val url = it.flatMap { x -> x.images!! }
-                adapter = FlightsFragmentRecyclerAdapter(url)
-                binding.imageRecyclerView2.adapter = adapter
+                when(it.status){
+                    Status.SUCCESS ->{
+                        val urls = it.data?.flatMap{x->x.images!!}
+                        urls?.let {
+
+                          adapter = FlightsFragmentRecyclerAdapter(it)
+                            binding.imageRecyclerView2.adapter = adapter
+                        }
+
+                    }
+
+                    Status.ERROR->{
+                        Toast.makeText(requireContext(),it.message ?: "Error", Toast.LENGTH_LONG).show()
+                    }
+
+                    Status.LOADING->{
+
+                    }
+                }
+
 
             }
 

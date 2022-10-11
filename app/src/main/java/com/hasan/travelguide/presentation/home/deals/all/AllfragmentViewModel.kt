@@ -1,41 +1,40 @@
 package com.hasan.travelguide.presentation.home.deals.all
 
 
-import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.hasan.travelguide.data.remote.TravelAPIService
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.hasan.travelguide.TravelApplication
+import com.hasan.travelguide.data.repository.TravelRepository
 import com.hasan.travelguide.domain.model.remotemodel.AllTravelListItem
-import com.hasan.travelguide.presentation.home.BaseViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import com.hasan.travelguide.domain.repository.TravelGuideRepositoryInterface
+import com.hasan.travelguide.utils.Resource
+import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class AllfragmentViewModel @Inject constructor (
+    private val repository: TravelGuideRepositoryInterface
+    ) : ViewModel() {
 
 
-class AllfragmentViewModel(application: Application) : BaseViewModel(application) {
 
-    private val disposable = CompositeDisposable()
-    private val travelAPIService = TravelAPIService()
-
-    val allList = MutableLiveData<List<AllTravelListItem>>()
+    val allList = MutableLiveData<Resource<List<AllTravelListItem>>>()
 
     fun getDataFromApi() {
-
-            disposable.add(
-                travelAPIService.getDealsAllData()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handlerResponse)
-            )
+        allList.value = Resource.loading(null)
+        viewModelScope.launch {
+            val response = repository.getAllListItem()
+            allList.value = response
+        }
     }
 
-    private fun handlerResponse(listItem: List<AllTravelListItem>){
 
-        allList.value = listItem
-    }
 
-    override fun onCleared() {
-        super.onCleared()
-        disposable.clear()
-    }
+
 }
 
