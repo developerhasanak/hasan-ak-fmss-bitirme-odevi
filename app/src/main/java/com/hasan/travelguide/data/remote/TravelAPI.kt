@@ -12,4 +12,7 @@ interface TravelAPI {
 
     @GET("AllTravelList?category=flight")
    suspend fun getDealsFlightList():Response<List<AllTravelListItem>>
+
+    @GET("AllTravelList?category=topdestination")
+    suspend fun getTopDestinationsList():Response<List<AllTravelListItem>>
 }

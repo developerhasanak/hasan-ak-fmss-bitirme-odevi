@@ -45,7 +45,7 @@
     </style>
 
     <style name="image_radio">
-        <item name="cornerRadius">6dp</item>
+        <item name="cornerRadius">10dp</item>
     </style>
 
     <style name="bookmark_radio">

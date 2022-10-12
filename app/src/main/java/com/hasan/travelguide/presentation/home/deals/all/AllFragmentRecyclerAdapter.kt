@@ -33,7 +33,8 @@ class AllFragmentRecyclerAdapter @Inject constructor(
     override fun onBindViewHolder(holder: AllFragmentViewHolder, position: Int) {
 
         try {
-            GlideApp.with(holder.itemView.context).load(imageList[position].url).into(holder.binding.homeDealsItemView)
+            //GlideApp.with(holder.itemView.context).load(imageList[position].url).into(holder.binding.homeDealsItemView)
+            holder.binding.homeDealsItemView.downloadFromUrl(imageList[position].url)
         } catch (e:Exception){
              e.message
          }

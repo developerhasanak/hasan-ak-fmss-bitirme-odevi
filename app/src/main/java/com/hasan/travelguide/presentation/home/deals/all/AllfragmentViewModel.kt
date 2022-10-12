@@ -13,7 +13,10 @@ import com.hasan.travelguide.utils.Resource
 import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.ViewModelScoped
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,9 +30,12 @@ class AllfragmentViewModel @Inject constructor (
 
     fun getDataFromApi() {
         allList.value = Resource.loading(null)
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val response = repository.getAllListItem()
-            allList.value = response
+            withContext(Dispatchers.Main){
+                allList.value = response
+
+            }
         }
     }
 

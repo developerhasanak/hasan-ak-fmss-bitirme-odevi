@@ -7,7 +7,10 @@ import com.hasan.travelguide.domain.model.remotemodel.AllTravelListItem
 import com.hasan.travelguide.domain.repository.TravelGuideRepositoryInterface
 import com.hasan.travelguide.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,9 +23,11 @@ class FlightsFragmentViewModel @Inject constructor(
 
     fun getDataFromApi() {
         flightsList.value = Resource.loading(null)
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val response = repository.getDealsFlightData()
-            flightsList.value = response
+            withContext(Dispatchers.Main){
+                flightsList.value = response
+            }
         }
     }
 }

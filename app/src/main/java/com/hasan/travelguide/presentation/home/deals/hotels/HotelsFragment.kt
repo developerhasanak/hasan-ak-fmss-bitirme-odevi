@@ -5,38 +5,69 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hasan.travelguide.R
+import com.hasan.travelguide.databinding.FragmentHotelsBinding
+import com.hasan.travelguide.presentation.home.deals.flights.FlightsFragmentRecyclerAdapter
+import com.hasan.travelguide.utils.Status
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HotelsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HotelsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentHotelsBinding
+    private lateinit var adapter: HotelsAdapter
+    private lateinit var viewModel: HotelsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hotels, container, false)
+     binding = FragmentHotelsBinding.inflate(inflater)
+     return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(requireActivity())[HotelsViewModel::class.java]
+        viewModel.hotelListApi()
+
+        binding.imageRecyclerView3.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+
+         observerLiveData()
+    }
+
+    private fun observerLiveData() {
+        viewModel.hotelList.observe(viewLifecycleOwner, Observer { flight ->
+            flight?.let {
+                when(it.status){
+                    Status.SUCCESS ->{
+                        val urls = it.data?.filter { x -> x.category=="hotel" }?.flatMap{x->x.images!!}
+                        urls?.let {
+
+                            adapter = HotelsAdapter(it)
+                            binding.imageRecyclerView3.adapter = adapter
+                        }
+
+                    }
+
+                    Status.ERROR->{
+                        Toast.makeText(requireContext(),it.message ?: "Error", Toast.LENGTH_LONG).show()
+                    }
+
+                    Status.LOADING->{
+
+                    }
+                }
+
+
+            }
+
+        })
+
+    }
 
 }

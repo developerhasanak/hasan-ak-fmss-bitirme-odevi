@@ -12,13 +12,17 @@
 
         <ImageView
             android:id="@+id/topDestinationsImageItem"
-            style="@style/image_radio"
+            android:background="@drawable/image_radius"
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:foreground="@drawable/image_alpha"
-            android:src="@drawable/top_item" />
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="10dp"
+
+
+             />
 
         <TextView
             android:id="@+id/topDestinotionsAlphaHeadTitle"
@@ -28,7 +32,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="76dp"
-            android:text="Tokyo"
+
             android:textSize="18sp">
 
         </TextView>
@@ -41,7 +45,6 @@
             android:layout_below="@id/topDestinotionsAlphaHeadTitle"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="4dp"
-            android:text="Japan"
             android:textSize="16sp">
 
         </TextView>

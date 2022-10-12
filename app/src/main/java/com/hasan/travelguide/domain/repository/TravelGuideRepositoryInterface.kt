@@ -12,4 +12,6 @@ interface TravelGuideRepositoryInterface {
     suspend fun getAllListItem(): Resource<List<AllTravelListItem>>
 
     suspend fun getDealsFlightData():Resource<List<AllTravelListItem>>
+
+    suspend fun getTopDestinationsData():Resource<List<AllTravelListItem>>
 }
